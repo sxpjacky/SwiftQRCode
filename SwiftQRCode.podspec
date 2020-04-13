@@ -9,7 +9,7 @@ s.source_files = "QRCode/Source/*.swift"
 s.framework    = "AVFoundation"
 s.requires_arc = true
 
-s.swift_version = ‘5.1’
+s.swift_version = ‘5’
 s.homepage = "https://github.com/alexswipeios/QRCode”
 s.source = { :git => "https://github.com/alexswipeios/SwiftQRCode.git”, :tag => s.version.to_s }
 
