@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "QRCodeDemoObjc-Swift.h"
+#import "QRcodeDemoObjc-Swift.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
