@@ -246,17 +246,20 @@ open class QRCode: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func drawCodeCorners(_ codeObject: AVMetadataMachineReadableCodeObject) {
-        if codeObject.corners.count == 0 {
-            return
-        }
-        
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.lineWidth = lineWidth
-        shapeLayer.strokeColor = strokeColor.cgColor
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.path = createPath(codeObject.corners as NSArray).cgPath
-        
-        drawLayer.addSublayer(shapeLayer)
+        #if !targetEnvironment(simulator)
+
+            if codeObject.corners.count == 0 {
+                return
+            }
+
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.lineWidth = lineWidth
+            shapeLayer.strokeColor = strokeColor.cgColor
+            shapeLayer.fillColor = UIColor.clear.cgColor
+            shapeLayer.path = createPath(codeObject.corners as NSArray).cgPath
+
+            drawLayer.addSublayer(shapeLayer)
+        #endif
     }
     
     func createPath(_ points: NSArray) -> UIBezierPath {
